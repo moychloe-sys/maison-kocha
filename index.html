@@ -1,12 +1,236 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maison Kōcha</title>
-</head>
-<body>
-  <h1>Maison Kōcha</h1>
-  <p>Boutique fictive créée dans le cadre d’un projet de formation.</p>
-</body>
-</html>
+/* Maison Kōcha · palette et typographies */
+:root {
+  --vert: #2F5D50;
+  --creme: #F5F0E1;
+  --ambre: #C98B2B;
+  --brun: #3A2E25;
+  --titre: Georgia, "Times New Roman", serif;
+  --texte: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--brun);
+  font: 1.0625rem/1.6 var(--texte);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--titre);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+a { color: var(--vert); }
+
+:focus-visible {
+  outline: 3px solid var(--ambre);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Lien d’accès rapide au contenu (clavier) */
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--brun);
+  color: var(--creme);
+}
+.skip:focus { left: 0; }
+
+/* En-tête */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--vert);
+  color: var(--creme);
+}
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.logo {
+  font-family: var(--titre);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--creme);
+  text-decoration: none;
+}
+.site-header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-header nav a {
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  color: var(--creme);
+  text-decoration: none;
+}
+.site-header nav a:hover { border-bottom-color: var(--ambre); }
+
+/* Bandeau d’accueil */
+.hero {
+  padding: clamp(3rem, 10vw, 7rem) 0 clamp(3.5rem, 11vw, 8rem);
+  background: var(--vert);
+  color: var(--creme);
+}
+/* Pour utiliser votre photo de bannière, remplacez la ligne background ci-dessus par :
+   background: linear-gradient(rgba(36, 74, 64, 0.82), rgba(36, 74, 64, 0.82)), url("images/banniere.jpg") center / cover; */
+.hero h1 {
+  max-width: 14ch;
+  font-size: clamp(2.4rem, 7vw, 4.8rem);
+  letter-spacing: -0.015em;
+}
+.hero-intro {
+  max-width: 38rem;
+  margin: 1.5rem 0 0;
+  font-size: 1.15rem;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin: 2rem 0 0;
+}
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.4rem;
+  background: var(--ambre);
+  color: var(--brun);
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn:hover { background: #D79A38; }
+.hero .lien { color: var(--creme); }
+
+/* Sections */
+section { padding: clamp(3rem, 8vw, 5.5rem) 0; }
+.hero { padding: clamp(3rem, 10vw, 7rem) 0 clamp(3.5rem, 11vw, 8rem); }
+
+.section-titre {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+}
+.section-intro {
+  max-width: 40rem;
+  margin: 0 0 2.5rem;
+}
+
+/* Carte des thés */
+.carte {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.75rem 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.carte li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 0 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(58, 46, 37, 0.25);
+}
+.goutte {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin: 0.3rem 0.3rem 0 0.3rem;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 4px var(--creme), 0 0 0 6px rgba(58, 46, 37, 0.55);
+}
+.carte h3 { font-size: 1.3rem; }
+.carte .type {
+  margin: 0.1rem 0 0.35rem;
+  color: var(--vert);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.carte .notes { margin: 0; }
+.carte .infusion {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+.prix {
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.mention {
+  margin: 2rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Questions fréquentes */
+.faq { background: rgba(58, 46, 37, 0.06); }
+.faq details {
+  max-width: 46rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(58, 46, 37, 0.25);
+}
+.faq summary {
+  cursor: pointer;
+  font-family: var(--titre);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.faq details p { margin: 0.75rem 0 0; }
+
+/* Contact */
+.contact iframe {
+  display: block;
+  width: 100%;
+  max-width: 44rem;
+  min-height: 760px;
+  margin-top: 1.5rem;
+  border: 0;
+}
+
+/* Pied de page */
+.site-footer {
+  padding: 2.5rem 0;
+  background: var(--vert);
+  color: var(--creme);
+  font-size: 0.95rem;
+}
+.site-footer a { color: var(--creme); }
+.site-footer p {
+  max-width: 42rem;
+  margin: 0 0 0.75rem;
+}
+.site-footer summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.site-footer details p { margin-top: 0.75rem; }
