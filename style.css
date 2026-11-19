@@ -193,7 +193,7 @@ section { padding: clamp(3rem, 8vw, 5.5rem) 0; }
 }
 
 /* Questions fréquentes */
-.faq { background: rgba(58, 46, 37, 0.06); }
+.faq, .accessoires { background: rgba(58, 46, 37, 0.06); }
 .faq details {
   max-width: 46rem;
   padding: 1rem 0;
